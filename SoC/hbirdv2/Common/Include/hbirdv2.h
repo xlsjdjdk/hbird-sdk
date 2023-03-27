@@ -444,14 +444,9 @@ typedef union{
 typedef struct {  /*!< ADD Config Structure */
     __IOM uint32_t AUGEND;
     __IOM uint32_t ADDEND;
-<<<<<<< HEAD
     __IOM uint32_t CTRL;
     __IOM uint32_t OFSIGN;
     __IOM uint32_t SUM;
-=======
-    __IOM uint32_t CONTROL;
-    __IOM uint32_t STATUS;
->>>>>>> 9e5afd825402d26e594ba7d08efaa6c29307f907
 } ADD_CFG_TypeDef;
 
 /*@}*/ /* end of group hbird_Peripherals */
