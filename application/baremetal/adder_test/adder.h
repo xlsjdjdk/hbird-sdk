@@ -6,13 +6,13 @@
  extern "C" {
 #endif
 
-int32_t adder_loadNum(ADD_CFG_TypeDef *cfg, uint32_t augend, uint32_t addend);
+int32_t adder_loadNum(ADD_CFG_TypeDef *cfg, int32_t augend, int32_t addend);
 int32_t adder_enable(ADD_CFG_TypeDef *cfg);
 int32_t adder_disable(ADD_CFG_TypeDef *cfg);
 int32_t adder_clear(ADD_CFG_TypeDef *cfg);
 int32_t adder_readSum(ADD_CFG_TypeDef *cfg);
 int32_t adder_readOfsign(ADD_CFG_TypeDef *cfg);
-int32_t adder_readNum(ADD_CFG_TypeDef *cfg, int option);
+int32_t adder_readNum(ADD_CFG_TypeDef *cfg, int32_t option);
 
 #ifdef __cplusplus
 }

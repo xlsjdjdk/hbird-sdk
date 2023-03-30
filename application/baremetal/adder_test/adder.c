@@ -1,7 +1,7 @@
 #include "hbirdv2.h"
 #include "adder.h"
 
-int32_t adder_loadNum(ADD_CFG_TypeDef *cfg, uint32_t augend, uint32_t addend)
+int32_t adder_loadNum(ADD_CFG_TypeDef *cfg, int32_t augend, int32_t addend)
 {
     if (__RARELY(cfg == NULL)) {
         return -1;
@@ -18,6 +18,8 @@ int32_t adder_enable(ADD_CFG_TypeDef *cfg)
         return -1;
     }
     cfg-> CTRL = cfg-> CTRL | 0x00000001;
+
+    return 0;
 }
 
 int32_t adder_disable(ADD_CFG_TypeDef *cfg)
@@ -26,6 +28,8 @@ int32_t adder_disable(ADD_CFG_TypeDef *cfg)
         return -1;
     }
     cfg-> CTRL = cfg-> CTRL & 0x00000000;
+
+    return 0;
 }
 
 int32_t adder_clear(ADD_CFG_TypeDef *cfg)
@@ -34,6 +38,8 @@ int32_t adder_clear(ADD_CFG_TypeDef *cfg)
         return -1;
     }
     cfg-> CTRL = cfg-> CTRL | 0x00000002;
+
+    return 0;
 }
 
 int32_t adder_readSum(ADD_CFG_TypeDef *cfg)
@@ -54,7 +60,7 @@ int32_t adder_readOfsign(ADD_CFG_TypeDef *cfg)
     return adder_readNum(ADD_CFG, 3);
 }
 
-int32_t adder_readNum(ADD_CFG_TypeDef *cfg, int option)
+int32_t adder_readNum(ADD_CFG_TypeDef *cfg, int32_t option)
 {
     if (__RARELY(cfg == NULL)) {
         return -1;
