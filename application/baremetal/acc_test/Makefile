@@ -1,4 +1,4 @@
-TARGET = adder_test
+TARGET = acc_test
 
 HBIRD_SDK_ROOT = ../../..
 

@@ -439,15 +439,15 @@ typedef union{
 } pwm_timer;
 
 /**
-  * @brief ADD Config
+  * @brief ACC Config
   */
-typedef struct {  /*!< ADD Config Structure */
-    __IOM uint32_t AUGEND;
-    __IOM uint32_t ADDEND;
-    __IOM uint32_t CTRL;
-    __IOM uint32_t OFSIGN;
-    __IOM uint32_t SUM;
-} ADD_CFG_TypeDef;
+typedef struct {  /*!< ACC Config Structure */
+    __IOM uint32_t STAT_REG;
+    __IOM uint32_t CONFIG_REG;
+    __IOM uint32_t CALCBASE_REG;
+    __IOM uint32_t RWBASE_REG;
+    // __IOM uint32_t ;
+} ACC_CFG_TypeDef;
 
 /*@}*/ /* end of group hbird_Peripherals */
 
@@ -535,7 +535,7 @@ typedef struct {  /*!< ADD Config Structure */
 #define SPI2_BASE               (HBIRD_PERIPH_BASE + 0x34000)          /*!< (QSPI2) Base Address */
 #define I2C1_BASE               (HBIRD_PERIPH_BASE + 0x35000)          /*!< (I2C1 Master) Base Address */
 #define GPIOB_BASE              (HBIRD_PERIPH_BASE + 0x40000)          /*!< (GPIOB) Base Address */
-#define ADD_CFG_BASE            (HBIRD_PERIPH_BASE + 0x42000)          /*!< (ACC CFG) Base Address */
+#define ACC_CFG_BASE            (HBIRD_PERIPH_BASE + 0x42000)          /*!< (ACC CFG) Base Address */
 
 
 /** @} */ /* End of group Device_Peripheral_peripheralAddr */
@@ -562,7 +562,7 @@ typedef struct {  /*!< ADD Config Structure */
 #define SPI2                    ((SPI_TypeDef *)  SPI2_BASE)
 #define I2C1                    ((I2C_TypeDef *)  I2C1_BASE)
 #define GPIOB                   ((GPIO_TypeDef *) GPIOB_BASE)
-#define ADD_CFG                 ((ADD_CFG_TypeDef *) ADD_CFG_BASE)
+#define ACC_CFG                 ((ACC_CFG_TypeDef *) ACC_CFG_BASE)
 
 #define GPIOA_REG(offset)       _REG32(GPIOA_BASE, offset)
 #define UART0_REG(offset)       _REG32(UART0_BASE, offset)
@@ -575,7 +575,7 @@ typedef struct {  /*!< ADD Config Structure */
 #define SPI2_REG(offset)        _REG32(SPI2_BASE,  offset)
 #define I2C1_REG(offset)        _REG32(I2C1_BASE,  offset)
 #define GPIOB_REG(offset)       _REG32(GPIOB_BASE, offset)
-#define ADD_CFG_REG(offset)     _REG32(ADD_CFG_BASE, offset)
+#define ACC_CFG_REG(offset)     _REG32(ACC_CFG_BASE, offset)
 
 // Misc
 
