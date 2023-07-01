@@ -100,6 +100,7 @@ typedef enum IRQn
     PLIC_I2C1_IRQn           = 14,               /*!< Device external Interrupt 14 I2C1 */
     PLIC_GPIOA_IRQn          = 15,               /*!< Device external Interrupt 15 GPIOA */
     PLIC_GPIOB_IRQn          = 16,               /*!< Device external Interrupt 16 GPIOB */
+    PLIC_DMA_IRQn            = 17, 
     PLIC_INT_MAX,
 } IRQn_Type;
 
@@ -156,7 +157,7 @@ typedef enum EXCn {
 #else
 #define __PLIC_BASEADDR           0x0C000000UL          /*!< Set to PLIC baseaddr of your device */
 #endif
-#define __PLIC_INTNUM             17                    /*!< Set to 1 - 1024, total interrupt sources of PLIC Unit */
+#define __PLIC_INTNUM             18                    /*!< Set to 1 - 1024, total interrupt sources of PLIC Unit */
 
 #define __SYSTIMER_PRESENT        1                     /*!< Set to 1 if System CLINT Timer is present */
 #ifdef SIMULATION_XLSPIKE
@@ -439,15 +440,17 @@ typedef union{
 } pwm_timer;
 
 /**
-  * @brief ACC Config
+  * @brief DMA Config
   */
-typedef struct {  /*!< ACC Config Structure */
-    __IOM uint32_t STAT_REG;
-    __IOM uint32_t CONFIG_REG;
-    __IOM uint32_t CALCBASE_REG;
-    __IOM uint32_t RWBASE_REG;
+typedef struct {  /*!< DMA Config Structure */
+    __IOM uint32_t SR;
+    __IOM uint32_t CTR;
+    __IOM uint32_t CR;
+    __IOM uint32_t SRC_REG;
+    __IOM uint32_t DST_REG;
+    __IOM uint32_t LEN_REG;
     // __IOM uint32_t ;
-} ACC_CFG_TypeDef;
+} DMA_CFG_TypeDef;
 
 /*@}*/ /* end of group hbird_Peripherals */
 
@@ -535,7 +538,7 @@ typedef struct {  /*!< ACC Config Structure */
 #define SPI2_BASE               (HBIRD_PERIPH_BASE + 0x34000)          /*!< (QSPI2) Base Address */
 #define I2C1_BASE               (HBIRD_PERIPH_BASE + 0x35000)          /*!< (I2C1 Master) Base Address */
 #define GPIOB_BASE              (HBIRD_PERIPH_BASE + 0x40000)          /*!< (GPIOB) Base Address */
-#define ACC_CFG_BASE            (HBIRD_PERIPH_BASE + 0x42000)          /*!< (ACC CFG) Base Address */
+#define DMA_CFG_BASE            (HBIRD_PERIPH_BASE + 0x42000)          /*!< (DMA CFG) Base Address */
 
 
 /** @} */ /* End of group Device_Peripheral_peripheralAddr */
@@ -562,7 +565,7 @@ typedef struct {  /*!< ACC Config Structure */
 #define SPI2                    ((SPI_TypeDef *)  SPI2_BASE)
 #define I2C1                    ((I2C_TypeDef *)  I2C1_BASE)
 #define GPIOB                   ((GPIO_TypeDef *) GPIOB_BASE)
-#define ACC_CFG                 ((ACC_CFG_TypeDef *) ACC_CFG_BASE)
+#define DMA_CFG                 ((DMA_CFG_TypeDef *) DMA_CFG_BASE)
 
 #define GPIOA_REG(offset)       _REG32(GPIOA_BASE, offset)
 #define UART0_REG(offset)       _REG32(UART0_BASE, offset)
@@ -575,7 +578,7 @@ typedef struct {  /*!< ACC Config Structure */
 #define SPI2_REG(offset)        _REG32(SPI2_BASE,  offset)
 #define I2C1_REG(offset)        _REG32(I2C1_BASE,  offset)
 #define GPIOB_REG(offset)       _REG32(GPIOB_BASE, offset)
-#define ACC_CFG_REG(offset)     _REG32(ACC_CFG_BASE, offset)
+#define DMA_CFG_REG(offset)     _REG32(DMA_CFG_BASE, offset)
 
 // Misc
 

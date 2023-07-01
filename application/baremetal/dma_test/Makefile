@@ -1,4 +1,4 @@
-TARGET = acc_test
+TARGET = dma_test
 
 HBIRD_SDK_ROOT = ../../..
 
